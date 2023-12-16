@@ -35,6 +35,8 @@ def create_data(n, max_degree, smallest_cycle, edge_num):
         node1 = int(random.random() * n)
         node2 = int(random.random() * n)
         print(node1,node2)
+        if node1 == node2:
+            continue
         if graph[node1][node2] == 1:
             continue
         if sum(graph[node1]) >= max_degree or sum(graph[node2]) >= max_degree:
@@ -56,7 +58,7 @@ n = 100
 
 for i in range(10):
     edge_num = 400
-    max_degree = 10+i
+    max_degree = 10 + i
     smallest_cycle = 3
     graph = create_data(n, max_degree, smallest_cycle, edge_num)
     array = np.array(graph)
